@@ -1,4 +1,4 @@
-import type { Component } from "solid-js";
+import { Component, createEffect, createSignal } from "solid-js";
 
 type HumanBeing = {
   type: "human";
@@ -42,6 +42,18 @@ logBeingData({
 });
 
 const App: Component = () => {
+  // happens only a single time
+  const [getCount, setCount] = createSignal(0);
+  createEffect( () => {
+    // getCount Must be called because it sets the next callback
+    console.log("This is called all the time ", getCount());
+  });
+  return (
+    <div>The count is {getCount()}
+    <br/>
+    <button onClick={() => setCount(getCount() +1)}>Increment</button>
+    </div>
+  );
   return <div>Hello world I am {myself.firstName} {myself.lastName} born the {myself.birthDate.toISOString()} </div>;
 };
 
