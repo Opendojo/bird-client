@@ -17,9 +17,9 @@ type Being = HumanBeing | AlienBeing;
 
 const myself: HumanBeing = {
   type: "human",
-  firstName: "Adrian",
-  lastName: "Pascu",
-  birthDate: new Date(1992, 1, 1),
+  firstName: "Sébastien",
+  lastName: "Barbieri",
+  birthDate: new Date(1977, 10, 20),
 };
 
 const logBeingData = (being: Being) => {
@@ -36,13 +36,13 @@ const logBeingData = (being: Being) => {
 
 logBeingData({
   type: "human",
-  firstName: "Adrian",
-  lastName: "Pascu",
-  birthDate: new Date(1992, 1, 1),
+  firstName: "Sébastien",
+  lastName: "Barbieri",
+  birthDate: new Date(1977, 10, 20),
 });
 
 const App: Component = () => {
-  return <div>Hello world</div>;
+  return <div>Hello world I am {myself.firstName} {myself.lastName} born the {myself.birthDate.toISOString()} </div>;
 };
 
 export default App;
