@@ -34,13 +34,6 @@ const logBeingData = (being: Being) => {
   }
 };
 
-logBeingData({
-  type: "human",
-  firstName: "Sébastien",
-  lastName: "Barbieri",
-  birthDate: new Date(1977, 10, 20),
-});
-
 const App: Component = () => {
   // happens only a single time
   const [getCount, setCount] = createSignal(0);
