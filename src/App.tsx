@@ -1,4 +1,4 @@
-import { Component, createEffect, createSignal } from "solid-js";
+import { Component, Show, createEffect, createSignal } from "solid-js";
 
 type HumanBeing = {
   type: "human";
@@ -49,10 +49,12 @@ const App: Component = () => {
     console.log("This is called all the time ", getCount());
   });
   return (
-    <div>The count is {getCount()}
-    <br/>
-    <button onClick={() => setCount(getCount() +1)}>Increment</button>
-    </div>
+    <Show when={getCount() < 10 } fallback={<h1>the count is too big</h1>}>
+      <div>The count is {getCount()}
+      <br/>
+      <button onClick={() => setCount(getCount() +1)}>Increment</button>
+      </div>
+    </Show>
   );
   return <div>Hello world I am {myself.firstName} {myself.lastName} born the {myself.birthDate.toISOString()} </div>;
 };
